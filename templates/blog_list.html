@@ -1,12 +1,16 @@
 {% extends "base.html" %}
+
+{% block title %}Blog{% endblock %}
+
 {% block content %}
-    <h1>Blog Posts</h1>
+    <h2>Blog</h2>
     {% for post in posts %}
-        <article>
-            <h2><a href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
-            <p>By {{ post.author.username }} on {{ post.date_posted.strftime('%Y-%m-%d') }}</p>
-            <p>{{ post.content[:100] }}...</p>
-        </article>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.content }}</p>
+            </div>
+        </div>
     {% endfor %}
 {% endblock %}
 
