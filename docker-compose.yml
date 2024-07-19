@@ -2,25 +2,32 @@ version: '3.8'
 
 services:
   db:
-    build:
-      context: ./mariadb
-      dockerfile: Dockerfile
+    image: mariadb:10.5
     restart: always
     container_name: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: flask_db
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
     volumes:
       - db_data:/var/lib/mysql
     networks:
       - backend
-  
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p123"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   web:
     build: .
     restart: always
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     expose:
-      - "5000"
+      - "5000:5000"
     environment:
       - FLASK_ENV=production
       - FLASK_APP=wsgi.py
@@ -32,7 +39,7 @@ services:
       - DATABASE_DB=flask_db
     networks:
       - backend
-    command: gunicorn --bind 0.0.0.0:5000 -w 4 --timeout 90 wsgi:app
+    command: sh -c "sleep 10 && gunicorn --bind 0.0.0.0:5000 -w 4 --timeout 90 wsgi:app"
 
   nginx:
     build:
@@ -52,4 +59,3 @@ networks:
 
 volumes:
   db_data:
-

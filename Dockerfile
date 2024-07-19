@@ -4,20 +4,22 @@ FROM python:3.9-slim
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir -p /var/log/gunicorn && \
-    chown -R www-data:www-data /var/log/gunicorn
+#RUN mkdir -p /var/log/gunicorn && \
+#    chown -R www-data:www-data /var/log/gunicorn
 
 # Set the working directory in the container
 WORKDIR /app
 
 # Copy the dependencies file to the working directory
 
-COPY requirements.txt .
+COPY requirements.txt requirements.txt
 
 # Install any needed packages specified in requirements.txt
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code to the working directory
+
 COPY . .
 
 # Expose port 8000 to allow external access
