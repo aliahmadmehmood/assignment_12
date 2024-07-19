@@ -4,8 +4,8 @@ FROM python:3.9-slim
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN sudo mkdir -p /var/log/gunicorn && \
-    sudo chown -R www-data:www-data /var/log/gunicorn
+RUN mkdir -p /var/log/gunicorn && \
+    chown -R www-data:www-data /var/log/gunicorn
 
 # Set the working directory in the container
 WORKDIR /app
