@@ -22,36 +22,36 @@ Before we embark on this containerized journey, make sure you've got:
 
 1. **Clone the mothership:**
    
-   _git clone https://github.com/aliahmadmehmood/assignment_12.git_
-   
-   _cd assignment_12_
+      _git clone https://github.com/aliahmadmehmood/assignment_12.git_
+      
+      _cd assignment_12_
    
 
 3. **Prepare for takeoff:**
    Create a `.env` file in the root directory. Fill it with secrets:
   
-   MYSQL_ROOT_PASSWORD=supersecretpassword
+   _MYSQL_ROOT_PASSWORD=supersecretpassword_
    
-   MYSQL_DATABASE=flask_galaxy
+   _MYSQL_DATABASE=flask_galaxy_
    
-   MYSQL_USER=space_cadet
+   _MYSQL_USER=space_cadet_
    
-   MYSQL_PASSWORD=warp_speed
+   _MYSQL_PASSWORD=warp_speed_
    
    Or Edit the "**docker-compose-yml**" and set ur cerdential in db image. 
 
 5. **Initiate the Swarm:**
    
-   _sudo docker swarm init_
+      _sudo docker swarm init_
    
 
 6. **Deploy the stack:**
   
-   _sudo docker stack deploy -c docker-compose.yml blog_
+      _sudo docker stack deploy -c docker-compose.yml blog_
 
 7. **Watch your fleet take flight:**
    
-   _sudo docker service ls_
+      _sudo docker service ls_
    
 
 8. **Open a wormhole to your app:**
@@ -67,30 +67,31 @@ Before we embark on this containerized journey, make sure you've got:
 
 - **Scale your fleet:**
 
-  _docker service scale blog_nginx=3_
+     _docker service scale blog_nginx=3_
 
 
 - **Inspect a service:**
  
-  _docker service inspect blog_
+     _docker service inspect blog_
  
 
 - **View service logs:**
  
-  _docker service logs blog_web/blog_db/blog_nginx_
+     _docker service logs blog_web or blog_db or blog_nginx_
  
 
 - **Update your stack:**
  
-  _docker stack deploy -c docker-compose.yml blog_
+     _docker stack deploy -c docker-compose.yml blog_
 
 
 ## 🛑 Emergency Shutdown
 
 When the space debris gets too thick:
 
-_docker stack rm flask_blog
-docker swarm leave --force_
+   _docker stack rm flask_blog_
+   
+   _docker swarm leave --force_
 
 
 ## 🚀 Ready for Liftoff?
