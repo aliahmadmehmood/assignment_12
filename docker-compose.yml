@@ -53,6 +53,12 @@ services:
       - web
     networks:
       - backend
+    volumes:
+      #- /etc/letsencrypt:/etc/letsencrypt
+      #- /var/lib/letsencrypt:/var/lib/letsencrypt
+      - /etc/letsencrypt/live/docker.aliahmad.sumamazaeem.com:/etc/letsencrypt/live/docker.aliahmad.sumamazaeem.com:ro
+      - /etc/letsencrypt/archive/docker.aliahmad.sumamazaeem.com:/etc/letsencrypt/archive/docker.aliahmad.sumamazaeem.com:ro
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
 
 networks:
   backend:
