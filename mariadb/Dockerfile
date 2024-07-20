@@ -1,3 +1,5 @@
+#This isn't Working so i directly add mariadb data in docker-compose.yml
+#Check the service: db in docker-compose-yml for clarity 
 
 # Use the official MariaDB image from the Docker Hub
 FROM mariadb:latest
