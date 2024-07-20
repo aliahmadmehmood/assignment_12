@@ -1,1 +1,19 @@
 Single-database configuration for Flask.
+
+Apply Migrations (If Using Flask-Migrate)
+If you're using Flask-Migrate, follow these steps to create and apply migrations:
+
+a. Initialize Migrations
+Run this command to initialize the migrations directory (if not already done):
+
+flask db init
+
+b. Create Migration Script
+Generate a new migration script based on your models:
+
+flask db migrate -m "Create post table"
+
+c. Apply Migrations
+Apply the migration to create the table in the database:
+
+flask db upgrade
