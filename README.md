@@ -22,35 +22,39 @@ Before we embark on this containerized journey, make sure you've got:
 
 1. **Clone the mothership:**
    
-   git clone https://github.com/aliahmadmehmood/assignment_12.git
+   _git clone https://github.com/aliahmadmehmood/assignment_12.git_
    
-   cd assignment_12
+   _cd assignment_12_
    
 
 3. **Prepare for takeoff:**
    Create a `.env` file in the root directory. Fill it with secrets:
   
    MYSQL_ROOT_PASSWORD=supersecretpassword
+   
    MYSQL_DATABASE=flask_galaxy
+   
    MYSQL_USER=space_cadet
+   
    MYSQL_PASSWORD=warp_speed
    
+   
 
-4. **Initiate the Swarm:**
+5. **Initiate the Swarm:**
    
    _sudo docker swarm init_
    
 
-5. **Deploy the stack:**
+6. **Deploy the stack:**
   
    _sudo docker stack deploy -c docker-compose.yml flask_cosmos_
 
-6. **Watch your fleet take flight:**
+7. **Watch your fleet take flight:**
    
    _sudo docker service ls_
    
 
-7. **Open a wormhole to your app:**
+8. **Open a wormhole to your app:**
    Navigate to `http://localhost` in your favorite browser
 
 ## 🌌 The Cosmic Architecture
