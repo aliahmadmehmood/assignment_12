@@ -38,7 +38,7 @@ Before we embark on this containerized journey, make sure you've got:
    
    MYSQL_PASSWORD=warp_speed
    
-   
+   Or Edit the "**docker-compose-yml**" and set ur cerdential in db image. 
 
 5. **Initiate the Swarm:**
    
@@ -47,7 +47,7 @@ Before we embark on this containerized journey, make sure you've got:
 
 6. **Deploy the stack:**
   
-   _sudo docker stack deploy -c docker-compose.yml flask_cosmos_
+   _sudo docker stack deploy -c docker-compose.yml blog_
 
 7. **Watch your fleet take flight:**
    
@@ -67,12 +67,12 @@ Before we embark on this containerized journey, make sure you've got:
 
 - **Scale your fleet:**
 
-  _docker service scale flask_cosmos_flask=3_
+  _docker service scale blog_nginx=3_
 
 
 - **Inspect a service:**
  
-  _docker service inspect flask_cosmos_flask_
+  _docker service inspect blog_
  
 
 - **View service logs:**
