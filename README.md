@@ -10,6 +10,26 @@ Imagine a world where your Flask application scales effortlessly, your database 
 - 🛡️ **Nginx**: The stalwart reverse proxy, defending your app from the chaos of the internet
 - 🐬 **MariaDB**: Where your data swims freely and securely
 
+## 🌠 Project Structure
+├── docker-compose.yml
+├── flask_app
+│ ├── Dockerfile
+│ ├── app
+│ │ ├── init.py
+│ │ ├── routes.py
+│ │ ├── models.py
+│ │ ├── templates
+│ │ │ ├── base.html
+│ │ │ ├── index.html
+│ │ │ ├── ...
+│ ├── requirements.txt
+│ └── ...
+├── nginx
+│ ├── Dockerfile
+│ └── nginx.conf
+└── db
+└── data
+
 ## 🛠️ Gear Up!
 
 Before we embark on this containerized journey, make sure you've got:
