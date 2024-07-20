@@ -5,6 +5,18 @@ FROM python:3.9-slim
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+# Libraries
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    zlib1g-dev \
+    libpq-dev && \
+    rm -rf /var/lib/apt/lists/*
+
 #RUN mkdir -p /var/log/gunicorn && \
 #    chown -R www-data:www-data /var/log/gunicorn
 
