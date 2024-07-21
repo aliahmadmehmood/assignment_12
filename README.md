@@ -14,20 +14,35 @@ Imagine a world where your Flask application scales effortlessly, your database 
 ├── docker-compose.yml
 
 ├── flask_app
+
 │ ├── Dockerfile
+
 │ ├── app
+
 │ │ ├── init.py
+
 │ │ ├── routes.py
+
 │ │ ├── models.py
+
 │ │ ├── templates
+
 │ │ │ ├── base.html
+
 │ │ │ ├── index.html
+
 │ │ │ ├── ...
+
 │ ├── requirements.txt
+
 │ └── ...
+
 ├── nginx
+
 │ ├── Dockerfile
+
 │ └── nginx.conf
+
 └── data
 
 ## 🛠️ Gear Up!
