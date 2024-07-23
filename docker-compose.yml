@@ -41,7 +41,7 @@ services:
       - DATABASE_DB=flask_db
     networks:
       - backend
-    command: sh -c " flask db upgrade && sleep 10 && gunicorn --bind 0.0.0.0:5000 -w 4 --timeout 90 wsgi:app"
+    command: sh -c " sleep 20 && sleep 10 && gunicorn --bind 0.0.0.0:5000 -w 4 --timeout 90 wsgi:app"
     depends_on:
       - db
 
@@ -65,7 +65,7 @@ services:
     volumes:
       - /etc/letsencrypt/live/docker.aliahmad.sumamazaeem.com:/etc/letsencrypt/live/docker.aliahmad.sumamazaeem.com:ro
       - /etc/letsencrypt/archive/docker.aliahmad.sumamazaeem.com:/etc/letsencrypt/archive/docker.aliahmad.sumamazaeem.com:ro
-    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+        #  command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     depends_on:
       - web
 
